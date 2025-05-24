@@ -123,7 +123,7 @@ export default App;
 The expression can be a `React variable, or property, or any other valid JavaScript expression` JSX will execute the expression and return the result.
 
 ```javascript
-const Name = "Jai Prakash";
+const Name = "Manoj";
 const Add = (a, b) => a + b;
 function App() {
   return (
@@ -219,7 +219,7 @@ function App() {
     <>
       <User
         img="https://miro.medium.com/v2/resize:fit:834/1*XxOe72-YU1ASLQYgW4Rixg.jpeg"
-        Name="Jai Prakash"
+        Name="Manoj"
         Age={21}
       ></User>
     </>
@@ -255,7 +255,7 @@ function App() {
     <>
       <User
         img="https://miro.medium.com/v2/resize:fit:834/1*XxOe72-YU1ASLQYgW4Rixg.jpeg"
-        Name="Jai Prakash"
+        Name="Manoj"
         Age={21}
       ></User>
     </>
@@ -284,7 +284,7 @@ function App() {
     <>
       <User
         img="https://miro.medium.com/v2/resize:fit:834/1*XxOe72-YU1ASLQYgW4Rixg.jpeg"
-        Name="Jai Prakash"
+        Name="Manoj"
         Age={21}
       ></User>
     </>
@@ -319,7 +319,7 @@ function App() {
     <>
       <User
         img="https://miro.medium.com/v2/resize:fit:834/1*XxOe72-YU1ASLQYgW4Rixg.jpeg"
-        Name="Jai Prakash"
+        Name="Manoj"
         Age={21}
       >
         <p>
@@ -646,7 +646,7 @@ const StudentInfo = () => {
   ]);
   const changeName = () => {
     setStudent(
-      student.map((m) => (m.Name === "Jp" ? { ...m, Name: "Jai Prakash" } : m))
+      student.map((m) => (m.Name === "Jp" ? { ...m, Name: "Manoj" } : m))
     );
   };
   return (
@@ -799,7 +799,7 @@ App.js
 ```javascript
 import First from "./first";
 function App() {
-  const name = "jai prakash";
+  const name = "Manoj";
   return (
     <>
       <h1>This is just simple text</h1>
@@ -878,7 +878,7 @@ import First from "./first";
 import { createContext } from "react";
 export const Data = createContext();
 function App() {
-  const name = "jai prakash";
+  const name = "Manoj";
   return (
     <>
       <Data.Provider value={name}>
@@ -926,7 +926,7 @@ export const Data = createContext();
 export const Data1 = createContext();
 
 const App = () => {
-  const name = "jai prakash";
+  const name = "Manoj";
   const age = 19;
 
   return (
@@ -984,7 +984,7 @@ import First from "./first";
 import Second from "./second";
 
 function App() {
-  const Name = "Jai prakash";
+  const Name = "Manoj";
   const Age = 21;
   return (
     <>
@@ -1039,7 +1039,7 @@ export const Data = createContext();
 export const Data1 = createContext();
 
 const App = () => {
-  const name = "jai prakash";
+  const name = "Manoj";
   const age = 19;
 
   return (
@@ -1079,3 +1079,67 @@ export default ComponentA;
 # useReducer()
 
 useReducer is a hook in React that is similar to useState, but it is designed for more complex state objects or state transition that involve multiple sub-values. It allows you to manage state in a functional, immutable way.
+
+Example :
+`App.js`
+
+```javascript
+import { useReducer } from "react";
+
+const App = () => {
+  const [count, dispatch] = useReducer(reducer, initialState);
+  return (
+    <>
+      <h1>Count: {count}</h1>
+      <button onClick={() => dispatch({ type: "increment" })}>Increment</button>
+      <button onClick={() => dispatch({ type: "decrement" })}>Decrement</button>
+    </>
+  );
+};
+
+export default App;
+```
+
+`reducer.js`
+
+```javascript
+const initialState = 0;
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "increment":
+      return state + 1;
+    case "decrement":
+      return state - 1;
+    default:
+      return state;
+  }
+};
+
+export default reducer;
+
+```
+framer motion 👉 animation library 
+
+```javascript
+import { motion } from "framer-motion";
+
+const App = () => {
+  return (
+    <>
+      <motion.h1>Count: {count}</motion.h1>
+      <motion.button 
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      
+      onClick={() => dispatch({ type: "increment" })}>Increment</motion.button>
+      <motion.button 
+      whileHover={{ scale: 1.1 }} 
+      whileTap={{ scale: 0.9 }}
+      onClick={() => dispatch({ type: "decrement" })}>Decrement</motion.button>
+    </>
+  );
+};
+
+export default App;
+``` 
