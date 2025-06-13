@@ -1143,3 +1143,4 @@ const App = () => {
 
 export default App;
 ``` 
+So this is the basic use of useReducer() and framer motion.
